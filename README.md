@@ -12,15 +12,15 @@ Following the user modifications described below, the current pipeline is design
 Please refer to the INSTALL file for installation instructions.
 
 # Software Requirements
-•	Bowtie 1.0.1 with index for human genome version GRCh38
-•	Python (2.7.5)
-  o	Python packages getopt, re, argparse, xlwt, scipy, statsmodels
+* Bowtie 1.0.1 with index for human genome version GRCh38
+* Python (2.7.5)
+  * Python packages getopt, re, argparse, xlwt, scipy, statsmodels
 
 # Script Parameters
-  •	-c control_fastq_file  : “-c” indicates that the following is a fastq file (control_fastq_file) containing reads for the control    (unselected) cell population. This parameter is required, even though it is specified by an option.
-  •	-s selected_fastq_file  : “-s” indicates that the following is a fastq file (selected_fastq_file) containing reads for the selected cell population. This parameter is required, even though it is specified by an option.
-  •	-n basename_for_output_files : “-n” indicates that the following string (basename_for_output_files) should be used to create the files for output. This option is not required. The default basename is “output”. Please do not use the words “control” or “selected” when specifying the name for the output files.
-  •	--binSize 1000: “--bin size” indicates that the following number should be used as the size of the bins that encompass the insertions. This option is not required. The default bin size is 1000.
+* -c <control_fastq_file>  : “-c” indicates that the following is a fastq file (control_fastq_file) containing reads for the control    (unselected) cell population. This parameter is required, even though it is specified by an option.
+* -s <selected_fastq_file>  : “-s” indicates that the following is a fastq file (selected_fastq_file) containing reads for the selected cell population. This parameter is required, even though it is specified by an option.
+* -n <basename_for_output_files> : “-n” indicates that the following string (basename_for_output_files) should be used to create the files for output. This option is not required. The default basename is “output”. Please do not use the words “control” or “selected” when specifying the name for the output files.
+* --binSize <integer>: “--bin size” indicates that the following number should be used as the size of the bins that encompass the insertions. This option is not required. The default bin size is 1000.
 
 # Output
 
@@ -34,34 +34,34 @@ All output files should be found in the directory in which the “BAIMS_pipeline
 6.	“basename”_selected.bed: This is a file of only the uniquely aligned sequencing reads from basename_selected.sam in the BED format. If two sequencing reads align to the same genomic position, only one is included in this file. This file can be uploaded to the UCSC Genome Browser to visualize the reads in different regions of the genome.
 7.	“basename”_control_binsAndAnnotations: This is a text file that contains the read counts for each bin for the control population. The information for each bin begins with the exact genomic location of the bin (chromosome and base pairs), followed by a breakdown of the number of total, unique, and non-unique (aligning to multiple genomic locations) reads in the bin. Each type of read is further broken down by orientation (“+” indicates the read aligned in the sense orientation with regard to the chromosome, “-” indicates the read aligned in the antisense orientation with regard to the chromosome) and the number of mismatches the read had during alignment. Genetic features that overlap with the bin are written below the table in the following format “Gene_name$Feature$Chromosome_Strand”.
 8.	“basename”_selected_binsAndAnnotations: This is a text file that contains the read counts for each bin for the selected population. The information for each bin begins with the exact genomic location of the bin (chromosome and base pairs), followed by a breakdown of the number of total, unique, and non-unique (aligning to multiple genomic locations) reads in the bin. Each type of read is further broken down by orientation (“+” indicates the read aligned in the sense orientation with regard to the chromosome, “-” indicates the read aligned in the antisense orientation with regard to the chromosome) and the number of mismatches the read had during alignment. Genetic features that overlap with the bin are written below the table in the following format “Gene_name$Feature$Chromosome_Strand”.
-9.	“basename”_Bin_Analysis.xls: This Excel file contains the results of the antisense intronic, promoter, and inactivating insertion enrichment analyses. 
-  a.	Antisense intronic insertion enrichment analysis (sheet: “Antisense_intronic_bins”) columns:
-    i.	“Bin” contains the chromosome and base pair location of the bin.
-    ii.	 “Annotation” contains genetic feature annotations for the corresponding bin.
-    iii.	 “p-value” contains the p-value for antisense intronic insertion enrichment for the corresponding bin.
-    iv.	“FDR-corrected p-value” contains the FDR-corrected p-value for antisense intronic insertion enrichment for the corresponding bin.
-    v.	“Sample,” “Antisense insertions in the bin for the sample” and “Total insertions mapped in the sample” refer to the sample population the insertions were mapped for, the number of antisense insertions found in the corresponding bin for the sample and the total number of insertions mapped for the sample, respectively.
-  b.	Promoter insertion enrichment analysis (sheet: “Promoter_bins”) columns:
-    i.	“Bin” contains the chromosome and base pair location of the bin.
-    ii.	 “Annotation” contains genetic feature annotations for the corresponding bin.
-    iii.	 “p-value” contains the p-value for promoter insertion enrichment for the corresponding bin.
-    iv.	“FDR-corrected p-value” contains the FDR-corrected p-value for promoter insertion enrichment for the corresponding bin.
-    v.	“Sample,” “Insertions in the bin for the sample” and “Total insertions mapped in the sample” refer to the sample population the insertions were mapped for, the number of insertions found in the corresponding bin in that sample and the total number of insertions mapped for the sample, respectively.
-  c.	Inactivating insertion enrichment analysis (sheet: “Inactivating_bins”) columns:
-    i.	“Bin” contains the chromosome and base pair location of the bin.
-    ii.	 “Annotation” contains genetic feature annotations for the corresponding bin.
-    iii.	 “p-value” contains the p-value for inactivating insertion enrichment for the corresponding bin.
-    iv.	“FDR-corrected p-value” contains the FDR-corrected p-value for inactivating insertion enrichment for the corresponding bin.
-    v.	“Sample” refers to the sample population the insertions were mapped for. 
-    vi.	“Sense insertions in the bin for the sample” and “Antisense insertions in the bin for the sample” refer to the number of sense or antisense insertions (relative to orientation of the gene in the Annotation column for the bin) found in the corresponding bin.
-    vii.	“Inactivating insertions in the bin for the sample” refers to the number of inactivating insertions (sense and antisense insertions in bins annotated with “5’UTR,” “CDS,” or “3’UTR,” and only sense insertions in bins annotated exclusively as “intron”) found in the corresponding bin.
-    viii.	“Total Insertions Mapped in Sample” refers to the total number of insertions mapped for the corresponding sample.
+9. “basename”_Bin_Analysis.xls: This Excel file contains the results of the antisense intronic, promoter, and inactivating insertion enrichment analyses.
+    1. Antisense intronic insertion enrichment analysis (sheet: “Antisense_intronic_bins”) columns:
+        *	“Bin” contains the chromosome and base pair location of the bin.
+        * “Annotation” contains genetic feature annotations for the corresponding bin.
+        * “p-value” contains the p-value for antisense intronic insertion enrichment for the corresponding bin.
+        * “FDR-corrected p-value” contains the FDR-corrected p-value for antisense intronic insertion enrichment for the corresponding bin.
+        * “Sample,” “Antisense insertions in the bin for the sample” and “Total insertions mapped in the sample” refer to the sample population the insertions were mapped for, the number of antisense insertions found in the corresponding bin for the sample and the total number of insertions mapped for the sample, respectively.
+    2. Promoter insertion enrichment analysis (sheet: “Promoter_bins”) columns:
+        * “Bin” contains the chromosome and base pair location of the bin.
+        * “Annotation” contains genetic feature annotations for the corresponding bin.
+        * “p-value” contains the p-value for promoter insertion enrichment for the corresponding bin.
+        * “FDR-corrected p-value” contains the FDR-corrected p-value for promoter insertion enrichment for the corresponding bin.
+        * “Sample,” “Insertions in the bin for the sample” and “Total insertions mapped in the sample” refer to the sample population the insertions were mapped for, the number of insertions found in the corresponding bin in that sample and the total number of insertions mapped for the sample, respectively.
+    3. Inactivating insertion enrichment analysis (sheet: “Inactivating_bins”) columns:
+        *	“Bin” contains the chromosome and base pair location of the bin.
+        *	 “Annotation” contains genetic feature annotations for the corresponding bin.
+        *	 “p-value” contains the p-value for inactivating insertion enrichment for the corresponding bin.
+        *	“FDR-corrected p-value” contains the FDR-corrected p-value for inactivating insertion enrichment for the corresponding bin.
+        *	“Sample” refers to the sample population the insertions were mapped for. 
+        *	“Sense insertions in the bin for the sample” and “Antisense insertions in the bin for the sample” refer to the number of sense or antisense insertions (relative to orientation of the gene in the Annotation column for the bin) found in the corresponding bin.
+        *	“Inactivating insertions in the bin for the sample” refers to the number of inactivating insertions (sense and antisense insertions in bins annotated with “5’UTR,” “CDS,” or “3’UTR,” and only sense insertions in bins annotated exclusively as “intron”) found in the corresponding bin.
+        *	“Total Insertions Mapped in Sample” refers to the total number of insertions mapped for the corresponding sample.
 10.	“basename”_Gene_Comparison.xls: This Excel file contains the results of the gene-based insertion enrichment analysis. 
-  a.	Gene-based insertion enrichment analysis (sheet: “Gene_Insert_Enrich”) columns:
-    i.	“Gene” contains the RefSeq gene symbol.
-    ii.	 “p-value” contains the p-value for insertion enrichment for the corresponding gene.
-    iii.	“FDR-corrected p-value” contains the FDR-corrected p-value for insertion enrichment for the corresponding gene.
-    iv.	“Sample,” “Insertions in the gene in the sample” and “Total insertions mapped in the sample” refer to the sample population the insertions were mapped for, the number of insertions found in the corresponding gene for the sample and the total number of insertions mapped for the sample, respectively.
+    1.	Gene-based insertion enrichment analysis (sheet: “Gene_Insert_Enrich”) columns:
+        *	“Gene” contains the RefSeq gene symbol.
+        *	 “p-value” contains the p-value for insertion enrichment for the corresponding gene.
+        *	“FDR-corrected p-value” contains the FDR-corrected p-value for insertion enrichment for the corresponding gene.
+        *	“Sample,” “Insertions in the gene in the sample” and “Total insertions mapped in the sample” refer to the sample population the insertions were mapped for, the number of insertions found in the corresponding gene for the sample and the total number of insertions mapped for the sample, respectively.
 
 
 # Contact
