@@ -66,4 +66,4 @@ All output files should be found in the directory in which the “BAIMS_pipeline
 
 # Contact
 
-This code was developed and is maintained by Bhaven Patel, bhavenp@stanford.edu. If you have any questions or find any bugs, please email me and will I will try to respond as soon as possible.
+This code was developed and is maintained by Bhaven Patel (bhavenp@stanford.edu), a member of the Rohatgi Lab in the Department of Biochemistry in the Stanford School of Medicine. If you have any questions/issues or find any bugs, please email me and will I will try to respond as soon as possible.
