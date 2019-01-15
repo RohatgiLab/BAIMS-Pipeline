@@ -190,7 +190,7 @@ def printBins2(sheet, intronBinsList):
         row += 1;
 
 
-#prints bins annotated with "Promoter," which are sorted by enrichment p-value
+#prints bins annotated with "Promoter" for upstream insertion enrichment analysis. Bins are sorted by enrichment p-value
 def printBins3(sheet, promoterBinsList):
      #sets up the headers for the sheet
     sheet.write(0,0, "Bin");
@@ -373,7 +373,7 @@ def main(argv):
     #sort promoter bins enrichment p-value and print
     print "There are ", len(promoterBinsList), "bins with promoters";
     promoterBinsList.sort(key = lambda bin: bin.enrichPValue);
-    sheet = workbook.add_sheet("Promoter_bins");
+    sheet = workbook.add_sheet("Upstream_bins");
     printBins3(sheet, promoterBinsList);
     
     #sort rest bins by enrichment p-value
